@@ -2,7 +2,7 @@ import { templateSourceUrl } from "@angular/compiler";
 import { Component } from "@angular/core";
 
 @Component({
-    selector: '<app-server></app-server>',
+    selector: '<h4></h4>',
     templateUrl : "./server.component.html",
 })
 
