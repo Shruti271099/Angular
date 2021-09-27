@@ -1,17 +1,21 @@
-<p>This is Assignment task</p>
+<!-- <p>This is Assignment task</p>
 UserName: <input type="text" class="form-control" [(ngModel)]="UserName">
 
 <button class="btn btn-primary" [disabled]="UserName === ''" (click)="UserName = ''"> Reset User</button>
-<p>this Name will return ' ' after click button ,Name :{{ UserName }}</p>
+<p>this Name will return ' ' after click button ,Name :{{ UserName }}</p> -->
 <!-- <input type="text" (input)="onUpdateName($event)"> -->
 <input type="text" class="form-control" [(ngModel)]="UpdateName">
 <p>{{ UpdateName }}</p>
 <hr>
- 
+<button  class="btn btn-primary" [disabled]=!allowNewserver
+ (click)="onCreationServer()"> Add server</button>
 <hr>
-<button class="btn btn-primary" [disabled]=!allowNewserver (click)="onCreationServer()"> Add server</button>
-<hr>
-<p>{{ createServer}}</p>
+<p *ngIf="create_server; else noServer">{{ createServer}}</p>
+<ng-template #noServer>
+    <p>
+      No Server is created
+    </p>
+</ng-template>
 <hr>
 
 <!-- string Interoplation -->
