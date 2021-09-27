@@ -1,5 +1,24 @@
-<button class="btn btn-primary" [disabled]=!allowNewserver>Add server</button>
+<p>This is Assignment task</p>
+UserName: <input type="text" class="form-control" [(ngModel)]="UserName">
+
+<button class="btn btn-primary" [disabled]="UserName === ''" (click)="UserName = ''"> Reset User</button>
+<p>this Name will return ' ' after click button ,Name :{{ UserName }}</p>
+<!-- <input type="text" (input)="onUpdateName($event)"> -->
+<input type="text" class="form-control" [(ngModel)]="UpdateName">
+<p>{{ UpdateName }}</p>
 <hr>
-{{allowNewserver}}
+ 
+<hr>
+<button class="btn btn-primary" [disabled]=!allowNewserver (click)="onCreationServer()"> Add server</button>
+<hr>
+<p>{{ createServer}}</p>
+<hr>
+
+<!-- string Interoplation -->
+<!-- {{allowNewserver}} --> 
+<!-- --------------------------------- -->
+<!-- property Binding -->
+<!-- <p [innerText]= "allowNewserver" ></p> -->
+
 <app-server></app-server>
 <app-server></app-server>
