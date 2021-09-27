@@ -1,2 +1,5 @@
-<button class="btn btn-primary">Add some</button>
-<p>Hello</p>
+<button class="btn btn-primary" [disabled]=!allowNewserver>Add server</button>
+<hr>
+{{allowNewserver}}
+<app-server></app-server>
+<app-server></app-server>
