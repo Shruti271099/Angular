@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Fifth-Data-Binding';
+  serverElements = [{type:'server', name:'my name is server',content:'This is content'}];
+  
+
+  
 }
