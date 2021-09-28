@@ -1,21 +1,27 @@
-<div class="row">
-    <div class="col-xs-12">
-      <h4 style="color: cornflowerblue">Add New Server or Blueprints!</h4>
-     <div> <label for="ServerName">
-          Server Name</label><br>
-      <input type="text" class="form-control" [(ngModel)]="newServerName" /></div>
-      <div> <label for="ServerContent">
-          Server Content</label><br>
-      <input
-        type="text"
-        class="form-control"
-        [(ngModel)]="newServerContent"
-      /></div><br />
-      <button class="btn btn-primary" (click)="onAddServer()">
-        Add Server
-      </button> &nbsp;
-      <button class="btn btn-primary" (click)="onAddBlueprint()">
-        Add Server Blueprint
-      </button> &nbsp;
+<div class="col-xs-12">
+    <h4 style="color: cornflowerblue">Add New Server or Blueprints!</h4>
+   <div> 
+       <label for="ServerName">
+        Server Name</label><br>
+    <input type="text"
+     class="form-control" 
+     #serverNameInput />
     </div>
-  </div>
+    <div> 
+        <label for="ServerContent">
+        Server Content</label><br>
+    <input
+      type="text"
+      class="form-control"
+      #serverContentInput
+    />
+    </div><br />
+    <button class="btn btn-primary" (click)="onAddServer(serverNameInput)">
+      Add Server
+    </button> &nbsp;
+    <button class="btn btn-primary" (click)="onAddBlueprint(serverNameInput)">
+      Add Server Blueprint
+    </button> &nbsp;
+</div>
+
+
