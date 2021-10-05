@@ -1,22 +1,34 @@
-import { ServerComponent } from './server/server.component';
+
 import { NgModule } from '@angular/core';
+import { ModalConfigComponent } from './modal-config/modal-config.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
-import { ServersComponent } from './servers/servers.component';
+import { FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AddComponent } from './add/add.component';
+import {LOCAL_STORAGE, StorageServiceModule } from 'ngx-webstorage-service';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ServerComponent,
-    ServersComponent
+    AddComponent,
+    ModalConfigComponent,
+  
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    StorageServiceModule,
+    ReactiveFormsModule,
+
+  
+ 
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+   
 })
 export class AppModule { }

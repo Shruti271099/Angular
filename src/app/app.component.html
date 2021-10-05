@@ -1,11 +1,72 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <h2>Hello , we will see changes in our environment/index file</h2>
-      <p>Giving some css and html to our app</p>
-      <hr>
-       <app-servers></app-servers>
-    
+    <div class="col-md-12">
+      <hr />
+      <h2 style="text-align: center">Todo App</h2>
+
+      <!-- <app-add 
+       (itemAdded)="ItemAddedFinal($event)"></app-add> -->
+      <form [formGroup]="todoForm" >
+        <input
+          type="text"
+          [(ngModel)]="clearInput"
+          #itemInInput
+          
+          id="itemInInput"
+          formControlName="taskName"
+          id="myInput"
+          (keyup.enter)="onClickAdd(itemInInput.value)" 
+          required
+        />
+        &nbsp;
+        <button
+        [disabled]="!clearInput"
+          type="submit"
+          id="addbtn"
+          class="btn btn-success"
+          
+          (click)="onClickAdd(clearInput)"
+          *ngIf="isShown"
+        >
+          Add
+        </button>
+        &nbsp;
+        <button
+          class="btn-outline-dark"
+          *ngIf="isUpdate"
+          (click)="onClickAdd(itemInInput.value)"
+        >
+          Update
+        </button>
+      </form>
+      &nbsp;
+      <div>
+        <button class="btn btn-danger" (click)="onClickClearAll()">
+          Clear All
+        </button>
+      </div>
+      &nbsp;
+
+      <ul *ngFor="let todo of todos; let i = index" >
+        <hr />
+        <div class="row">
+          <div class="col-md-6">
+            <li>
+              {{ todo.name }} &nbsp;
+                
+              <button class="btn-success" (click)="onClickEdit(todo.id)">
+                Edit
+              </button>
+              &nbsp;
+            
+              <button class="btn-danger" (click)="onClickDelete(todo.id)">
+                Delete
+              </button>
+            </li>
+          </div>
+        </div>
+      </ul>
+      <hr />
     </div>
   </div>
 </div>
