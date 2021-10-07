@@ -1,4 +1,5 @@
 import { AppRoutingModule } from './users/app-routing.module';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +16,7 @@ import { ServersService } from './servers/servers.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     EditServerComponent,
     ServerComponent,
     PageNotFoundComponent,
+  
     
    
   ],
@@ -33,7 +36,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ServersService],
+  providers: [ServersService ,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
