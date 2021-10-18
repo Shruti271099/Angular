@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <form [formGroup]="registerForm" (ngSubmit)="onSignUp()">
+        <div class="row mb-3">
+          <label for="name" class="col-sm-2 col-form-label">Name</label>
+          <div class="col-sm-10">
+            <input
+              formControlName="name"
+              type="name"
+              class="form-control"
+              id="name"
+            />
+          </div>
+        </div>
+        <br />
+        <div class="row mb-3">
+          <label for="email" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input
+              formControlName="email"
+              type="email"
+              class="form-control"
+              id="email"
+            />
+          </div>
+        </div>
+        <br />
+        <div class="row mb-3">
+          <label for="password" class="col-sm-2 col-form-label">Password</label>
+          <div class="col-sm-10">
+            <input
+              formControlName="password"
+              
+              [type]="showPassword ? 'text' : 'password'"
+              class="form-control"
+              id="password"
+            />
+          
+
+            <input type="checkbox" (change)="showHidePassword($event)" /> View Password
+          </div>
+        </div>
+        <br />
+        <button
+          [disabled]="!registerForm.valid"
+          type="submit"
+          class="btn btn-primary"
+        >
+          Register
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

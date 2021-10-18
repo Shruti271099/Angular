@@ -1,0 +1,16 @@
+{
+  "Events": [
+    {
+      "id": 1,
+      "name": "Test",
+      "email": "test@gmail.com",
+      "password": "Shruti@453"
+    },
+    {
+      "name": "shruti lalotra",
+      "email": "hello@gmail.com",
+      "password": "Shruti@123",
+      "id": 2
+    }
+  ]
+}
