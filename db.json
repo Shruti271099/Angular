@@ -11,6 +11,30 @@
       "email": "hello@gmail.com",
       "password": "Shruti@123",
       "id": 2
+    },
+    {
+      "name": "nisharg",
+      "email": "ns@gmail.com",
+      "password": "Nisharg@123",
+      "id": 3
+    },
+    {
+      "name": "dhiral",
+      "email": "dsd@gmail.com",
+      "password": "Dhiral@123",
+      "id": 4
+    }
+  ],
+  "EventPlan": [
+    {
+      "name": "Yoga",
+      "description": "Daily Early in the morning",
+      "id": 2
+    },
+    {
+      "name": "homework",
+      "description": "today I will complete",
+      "id": 3
     }
   ]
 }

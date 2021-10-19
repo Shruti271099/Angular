@@ -1,0 +1,18 @@
+<div class="navbar"><h3 style="font-family: cursive; color: firebrick;">Add Your Event</h3></div>
+<form [formGroup]="addEventForm" (ngSubmit)="onCreateEvent()">
+    
+      <label for="name">Event Name</label>
+      <input formControlName="name" type="text" class="form-control" id="name" placeholder="event name">
+  
+   
+    
+  
+      <label for="exampleFormControlTextarea1">Event Description</label>
+      <textarea formControlName="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+   
+
+    <div>
+        &nbsp;<br>
+        <button type="submit" class="btn btn-success">Create</button>
+    </div>
+  </form>

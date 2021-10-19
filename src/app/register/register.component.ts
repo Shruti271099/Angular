@@ -47,7 +47,7 @@ onSignUp(){
   console.log(this.registerForm.value);
   this.http.post('http://localhost:3000/Events',this.registerForm.value)
   .subscribe(response => {
-    alert('SignUp Successful');
+    alert('Register Successful');
     this.registerForm.reset();
     this.router.navigate(['login']);
   }, err => {
