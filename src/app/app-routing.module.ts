@@ -1,3 +1,5 @@
+import { EventlistComponent } from './eventlist/eventlist.component';
+import { AuthenticationGuard } from './authentication.guard';
 import { AddEventComponent } from './add-event/add-event.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
@@ -7,11 +9,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const routes: Routes = [
-  {path:'',redirectTo:"register",pathMatch:"full"},
+  {path: '',redirectTo:"register",pathMatch:"full"},
   {path:'register', component:RegisterComponent},
   {path:'login', component:LoginComponent},
-  {path:'dashboard',component:DashboardComponent },
-  {path:'addevent',component:AddEventComponent}
+  {path:'addevent',component:AddEventComponent,canActivate:[AuthenticationGuard] },
+  {path:'eventlist', component:EventlistComponent ,canActivate:[AuthenticationGuard]},
+  {path:'dashboard',component:DashboardComponent , canActivate:[AuthenticationGuard] }
+
 ];
 
 @NgModule({

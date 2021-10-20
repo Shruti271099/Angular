@@ -14,6 +14,8 @@ export class DashboardComponent implements OnInit {
   SearchForm!:FormGroup
   userData:any;
    enableEdit = false;
+   showSearch = false;
+   togglesearch!:boolean;
   constructor(private http:HttpClient,
     private router:Router,
     private formBuilder:FormBuilder,
@@ -22,22 +24,29 @@ export class DashboardComponent implements OnInit {
   }
   ngOnInit(): void {
   this.SearchForm = this.formBuilder.group({
-    name :new FormControl('',Validators.required)
+    name :new FormControl('', Validators.required)
   })
 
     this.getdata().subscribe((data) => {
+      
       this.userData = data;
+      console.log(this.userData)
     })
   }
-  getdata(){
-    return this.http.get('http://localhost:3000/EventPlan')
-  }
+ 
+  
+  
   onDelete(user:number){
-    this.userData.splice(user-1,1);
+    this.userData.splice(this.userData.indexOf(user),1);
     this.eventService.deleteEvent(user).subscribe((res) => {
       console.warn("res",res)
     })
    
+  }
+
+  isMyEvent(userId: number) {
+    const userData = JSON.parse(localStorage.getItem('userEmail') || '{}');
+    return userId === userData.id;
   }
   
   Search(){
@@ -52,6 +61,7 @@ export class DashboardComponent implements OnInit {
         if (user) {
          
           alert('Event Found!');
+          
           // this.loginForm.reset();
           this.router.navigate(['dashboard']);
           
@@ -67,11 +77,24 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  onClickEdit(id:number){
-    this.router.navigate(['/addevent'])
+  onClickEdit(id:number,user:string){
+    // this.userData = this.userData.filter((i:any)=>i.id != id);
+    // this.eventService.deleteEvent(id).subscribe((res) => {
+    //   console.warn("res",res)
+    // })
+    this.router.navigate(['/addevent'], {queryParams: {id}});
+    // localStorage.setItem('ClickData',JSON.stringify(user))
+    
+    
+   
+   
   }
- onUpdate(userr:number){
+  getdata(){
+   
+    return this.http.get('http://localhost:3000/EventPlan');
+    
+  }
  
- }
+ 
 
 }

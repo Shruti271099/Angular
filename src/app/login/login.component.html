@@ -1,6 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
+
           <h4>Login Credentials</h4><hr>
             <form [formGroup]="loginForm" (ngSubmit)="login()">
                 <div class="row mb-3">
@@ -22,8 +23,10 @@
                   </div>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Login</button>
               </form>
+              
+              <a [routerLink]="['/register']">New User-Register Yourself!</a>
                   <br>
               
         </div>

@@ -1,3 +1,4 @@
+import { AuthenticationGuard } from './authentication.guard';
 import { RouterModule } from '@angular/router';
 
 import {HttpClientModule} from '@angular/common/http'
@@ -15,6 +16,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AddEventComponent } from './add-event/add-event.component';
+import { EventlistComponent } from './eventlist/eventlist.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +25,8 @@ import { AddEventComponent } from './add-event/add-event.component';
 
     RegisterComponent,
      DashboardComponent,
-   
-   
-         AddEventComponent
+   AddEventComponent,
+   EventlistComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,7 @@ import { AddEventComponent } from './add-event/add-event.component';
   
    
   ],
-  providers: [],
+  providers: [AuthenticationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

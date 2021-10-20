@@ -4,6 +4,7 @@
       
       
       <ul class="nav navbar-light">
+        Dashboard
         <button class="btn btn-success"><a style="color: darkslategrey;align-self: inherit;" [routerLink]="['/addevent']" > Add Events</a></button>
         &nbsp;<button class="btn btn-danger"><a style="color: darkslategrey;" [routerLink]="['/login']"  > Logout</a></button> &nbsp;
         <form [formGroup]="SearchForm" (ngSubmit)="Search()" class="form-inline my-2 my-lg-0">
@@ -20,9 +21,9 @@
     
 
 <br> <br>       
-    <button (click)="onDelete(user.id)" class="btn-danger">Delete</button> &nbsp;
+    <button *ngIf="isMyEvent(user.userId)" (click)="onDelete(user.id)" class="btn-danger">Delete</button> &nbsp;
  
-    <button  (click)="onClickEdit(user.id)"
+    <button *ngIf="isMyEvent(user.userId)" (click)="onClickEdit(user.id,user)"
     style="background-color: lightseagreen;"class="btn-success">Edit</button> &nbsp;
     <hr>    
 </div>

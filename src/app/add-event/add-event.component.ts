@@ -13,15 +13,24 @@ export class AddEventComponent implements OnInit {
 
   constructor(private formBuilder:FormBuilder,
     private http:HttpClient,
-    private router:Router) { }
+    private router:Router) {
+
+     }
 
   ngOnInit(): void {
+    var storelocal = JSON.parse(localStorage.getItem('ClickData') ||  '{}');
+    const userDetails = JSON.parse(localStorage.getItem('userEmail') ||  '{}');
+   var storeName =  storelocal.name;
+   var storeDesc = storelocal.description
     this.addEventForm = this.formBuilder.group({
-      'name': new FormControl(''),
-      'description': new FormControl('')
+      'name': new FormControl(storeName? storeName : ''),
+      'description': new FormControl(storeDesc? storeDesc : ''),
+      'userId': userDetails.id
+     
     })
   }
   onCreateEvent(){
+
     console.log(this.addEventForm.value);
   this.http.post('http://localhost:3000/EventPlan',this.addEventForm.value)
   .subscribe(response => {
@@ -30,7 +39,7 @@ export class AddEventComponent implements OnInit {
     this.router.navigate(['dashboard']);
   }, err => {
       alert("Error Occcured")
-  })
+  })  
 }
 
 

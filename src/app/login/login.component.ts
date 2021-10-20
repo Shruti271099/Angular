@@ -1,4 +1,10 @@
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { EventsService } from './../events.service';
+import {
+  FormBuilder,
+  FormGroup,
+  FormControl,
+  Validators,
+} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -11,48 +17,49 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   showPassword!: boolean;
-  userEmailPass:any;
+  userEmailPass: any;
+  loggedIn = false;
 
   constructor(
     private http: HttpClient,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private eventService: EventsService
   ) {
     this.showPassword = false;
+    console.log('1');
   }
 
   ngOnInit(): void {
-    localStorage.getItem('data');
-   
     this.loginForm = this.formBuilder.group({
-      email: new FormControl(''),
-      password: new FormControl(''),
-    
+      email: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
     });
   }
   showHidePassword(e: any) {
     this.showPassword = e.target.checked;
   }
+  
   login() {
+   this.eventService.loggedIn = true;
     this.http.get<any>('http://localhost:3000/Events').subscribe(
       (res) => {
         const user = res.find((a: any) => {
           return (
-           
             a.email === this.loginForm.value.email &&
             a.password === this.loginForm.value.password
-            
           );
-         
         });
         if (user) {
           this.userEmailPass = user;
-          localStorage.setItem('data',JSON.stringify(this.userEmailPass));
-          JSON.parse(localStorage.getItem('data') || '{}');
           alert('Login Successfully');
           // this.loginForm.reset();
           this.router.navigate(['dashboard']);
-          
+         var storeEmailPass = localStorage.setItem('userEmail', JSON.stringify(this.userEmailPass));
+        var store = JSON.parse(localStorage.getItem('userEmail') || '{}');
+        var storeEmail = store.email;
+        console.log(storeEmail);
+
         } else {
           alert('User Not Found');
         }
@@ -61,6 +68,7 @@ export class LoginComponent implements OnInit {
         alert('Error Occurred');
       }
     );
-    
+    console.log(localStorage.getItem('user'));
+    JSON.parse(localStorage.getItem('user')!);
   }
 }

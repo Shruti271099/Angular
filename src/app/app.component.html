@@ -6,7 +6,7 @@
         <form class="container-fluid justify-content-start">
           <button type="button" [routerLink]="['register']" style="background-color: aquamarine;"  class="btn btn-outline-success me-2" > <a routerLink="/register/register.component.html"></a>Register</button> &nbsp;
           <button type="button" [routerLink]="['login']" style = "background-color: bisque;" class="btn btn-outline-success me-2" ><a routerLink="/login/login.component.html"></a>Login</button>&nbsp;
-          <button type="button" [routerLink]="['dashboard']"  style = "background-color: darkkhaki;" class="btn btn-outline-success me-2" ><a routerLink="/login/login.component.html"></a>Dashboard</button>
+          <button> <a [routerLink]="['/dashboard']" >Dashboard </a></button>
         </form>
         <hr>
         <router-outlet></router-outlet>
