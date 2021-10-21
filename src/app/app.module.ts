@@ -18,6 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddEventComponent } from './add-event/add-event.component';
 import { EventlistComponent } from './eventlist/eventlist.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,8 +36,8 @@ import { EventlistComponent } from './eventlist/eventlist.component';
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule
-  
+    NgbModule,
+    
    
   ],
   providers: [AuthenticationGuard],

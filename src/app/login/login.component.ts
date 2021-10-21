@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
+
     });
   }
   showHidePassword(e: any) {
@@ -57,6 +58,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['dashboard']);
          var storeEmailPass = localStorage.setItem('userEmail', JSON.stringify(this.userEmailPass));
         var store = JSON.parse(localStorage.getItem('userEmail') || '{}');
+        localStorage.setItem('loggedIn',JSON.stringify(true))
         var storeEmail = store.email;
         console.log(storeEmail);
 

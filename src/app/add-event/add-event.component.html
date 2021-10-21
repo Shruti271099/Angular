@@ -13,6 +13,6 @@
 
     <div>
         &nbsp;<br>
-        <button type="submit" class="btn btn-success"> Create </button>
+        <button [disabled]="!addEventForm.valid"  type="submit" class="btn btn-success"> Create </button>
     </div>
   </form>

@@ -1,32 +1,72 @@
-
 <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      
-      
-      <ul class="nav navbar-light">
-        Dashboard
-        <button class="btn btn-success"><a style="color: darkslategrey;align-self: inherit;" [routerLink]="['/addevent']" > Add Events</a></button>
-        &nbsp;<button class="btn btn-danger"><a style="color: darkslategrey;" [routerLink]="['/login']"  > Logout</a></button> &nbsp;
-        <form [formGroup]="SearchForm" (ngSubmit)="Search()" class="form-inline my-2 my-lg-0">
-            <input formControlName="name" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            &nbsp;<button style="background-color: lightgreen;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        
-      </ul>
-    </div>
-  </nav>
-<div class="container">
-     <h3 style="text-align: center;background-color: gainsboro;">Event Data</h3>
-    <div  *ngFor="let user of userData"> <h4 style="color: darkslategrey"> Name :  {{user.name}} <br> <br> Description : {{user.description}}</h4>
+  <div class="container-fluid">
+    <ul class="nav navbar-light">
+      Dashboard
+      <button class="btn btn-success">
+        <a
+          style="color: darkslategrey; align-self: inherit"
+          [routerLink]="['/addevent']"
+        >
+          Add Events</a
+        >
+      </button>
+      &nbsp;
+      <form [formGroup]="SearchForm" class="form-inline my-2 my-lg-0">
+        <input
+          formControlName="name"
+          class="form-control mr-sm-2"
+          type="search"
+          (input)="Search($event)"
+          placeholder="Search"
+          aria-label="Search"
+          #str
+         
+        />
+        &nbsp;<button
+          style="background-color: lightgreen"
+          class="btn btn-outline-success my-2 my-sm-0"
+         
+          type="submit"
+        >
+          Search
+        </button>
+      </form>
+    </ul>
+  </div>
+</nav>
+<div>
+  <div class="container">
+    <h3 style="text-align: center; background-color: gainsboro">Event Data</h3>
     
 
-<br> <br>       
-    <button *ngIf="isMyEvent(user.userId)" (click)="onDelete(user.id)" class="btn-danger">Delete</button> &nbsp;
- 
-    <button *ngIf="isMyEvent(user.userId)" (click)="onClickEdit(user.id,user)"
-    style="background-color: lightseagreen;"class="btn-success">Edit</button> &nbsp;
-    <hr>    
-</div>
+    <div *ngFor="let user of userData">
+      <h4 style="color: darkslategrey">
+        Name : {{ user.name }} <br />
+        <br />
+        Description : {{ user.description }}
+      </h4>
 
-   
+      <br />
+      <br />
+      <button
+        *ngIf="isMyEvent(user.userId)"
+        (click)="onDelete(user.id)"
+        class="btn-danger"
+      >
+        Delete
+      </button>
+      &nbsp;
+
+      <button
+        *ngIf="isMyEvent(user.userId)"
+        (click)="onClickEdit(user.id, user.name, user.description)"
+        style="background-color: lightseagreen"
+        class="btn-success"
+      >
+        Edit
+      </button>
+      &nbsp;
+      <hr />
+     </div>
+  </div>
 </div>

@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: '',redirectTo:"register",pathMatch:"full"},
   {path:'register', component:RegisterComponent},
   {path:'login', component:LoginComponent},
-  {path:'addevent',component:AddEventComponent,canActivate:[AuthenticationGuard] },
+  {path:'addevent',component:AddEventComponent, canActivate:[AuthenticationGuard] },
   {path:'eventlist', component:EventlistComponent ,canActivate:[AuthenticationGuard]},
   {path:'dashboard',component:DashboardComponent , canActivate:[AuthenticationGuard] }
 
