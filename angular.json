@@ -27,9 +27,27 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/bootstrap.css",
+              "src/assets/css/bootstrap.css.map",
+              "src/assets/css/magnific-popup.css",
+              "src/assets/css/owl.carousel.min.css",
+              "src/assets/img/about",
+              "src/assets/img/blog",
+              "src/assets/fonts/fontawesome/webfonts",
+              "src/assets/fonts/fontawesome/css/all.css",
+              "src/assets/fonts/fontawesome/css/fontawesome.min.css",
+              "src/assets/fonts/fontawesome/css/fontawesome.css",
+              "src/assets/fonts/fontawesome/scss/_animated.scss",
+              "src/assets/img/icon/bkg_grid.png",
+              "src/assets/img/focus/f-car.png",
+              "node_modules/font-awesome/css/font-awesome.css",
+              "src/assets/styles/custom.scss",
+              "src/assets/styless/index.scss",
+              "src/assets/styless/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
