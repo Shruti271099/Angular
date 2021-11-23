@@ -40,16 +40,22 @@
             </div>
             <div class="header-acc-list header-cart">
               <a href="cart.html"
-                ><span class=""
+                ><span 
                   ><img src="../../assets/img/icon/cart.png" alt="" /></span
               ></a>
             </div>
-            <div class="header-acc-list header-cart">
-              <a href="cart.html"
-                ><span class="">
-                  <img src="../../assets/img/icons8-user-50.png" alt="" />
-                  <i class="fa-user"></i></span
-              ></a>
+            <!-- <div class="header-acc-list header-cart">
+              <div class="dropdown">
+                <img src="../../assets//img/icons8-user-50.png" alt="" />
+              </div>
+            </div> -->
+            <div class="dropdown">
+              <button class="dropbtn">
+                <img src="../../assets/img/icons8-user-50.png" alt="" /></button>
+              <div class="dropdown-content">
+                <a [routerLink]= "['/auth/signup']" >signup</a>
+                <a [routerLink]="['/auth/login']">Login In</a>
+              </div>
             </div>
           </div>
         </div>
@@ -98,7 +104,7 @@
                   </ul>
                 </li>
                 <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a routerLink="../about" >About</a></li>
                 <li><a href="contact.html">Contact</a></li>
               </ul>
             </nav>
@@ -109,4 +115,3 @@
     </div>
   </div>
 </header>
-
