@@ -1,0 +1,72 @@
+<section class="hero-area">
+    <div class="hero-carousel">
+      <div class="single-hero d-flex align-items-center text-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+              <div class="hero-content">
+                <h2>Products</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+  <div class="row" style="align-items: center">
+    <div class="col-lg-4 col-md-4 col-8 text-center">
+      <div class="search-box">
+        <input type="text" placeholder="Search for product" />
+        <button
+          type="submit"
+        >
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+   
+  
+    <div class="filter">
+      <div class="form-group"><br>
+        <label for="email">Filter by category</label
+        >
+        <select
+          class="form-control"
+          style="display: initial; border-radius: 20px; width: 170px"
+          (change)="onSelectOption($event)"
+          
+        >
+
+
+        <!-- <ng-container *ngFor="let item of productFilter"  >
+          <option *ngFor="let items of item.categories" [value]="items.id" > 
+                    {{items.slug}}
+                   </option>
+         </ng-container> -->
+        
+          <option >All</option>
+         
+          <option  value="cakes">Cakes</option>
+          <option value="drinks">Drinks</option>
+          <option value="eggs">Eggs</option>
+          <option value="fruits">Fruits</option>
+          <option value="meat">Meats</option>
+          <option value="vegetables">Vegetables</option>
+          <option value="database">Database</option>
+          <option value="front">Front</option>
+          <option value="other">Other</option>
+          <option value="container">Container</option>
+          
+        
+        </select>
+        <i
+          class="fas fa-chevron-down"
+          style="position: absolute; top: 32px; left: 27%; color: white"
+        ></i>
+      </div>
+    </div>
+  </div>
+</div>
+<app-trendy-foods></app-trendy-foods>
+

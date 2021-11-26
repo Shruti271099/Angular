@@ -1,0 +1,22 @@
+.hero-area{
+    background-image: url('../../assets/img/breadcumb/breadcumb-blog.jpg');
+    background-repeat: no-repeat;
+}
+.offer-banner-wrap1{
+    background-image: url('../../assets/img/banner/offer-big-1.jpg');
+    background-repeat: no-repeat;
+}
+.offer-banner-wrap2{
+    background-image: url('../../assets/img/banner/offer-med-1.jpg');
+    background-repeat: no-repeat;
+}
+.offer-banner-wrap3{
+    background-image: url('../../assets/img/banner/offer-med-2.jpg');
+    background-repeat: no-repeat;
+}
+.post-text{
+    width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

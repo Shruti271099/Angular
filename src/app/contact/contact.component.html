@@ -1,0 +1,84 @@
+<main>
+    <section class="hero-area breadcumb-area">
+        <div class="hero-carousel">
+            <div class="single-hero d-flex align-items-center text-center breadcumb-contact">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2 text-center">
+                            <div class="hero-content">
+                                <h3>Organic Food</h3>
+                                <h2>Contact</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact-address-area pd-t-150">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="single-contact-info">
+                                <h4>Address</h4>
+                                <p>6th Forrest Ray, <br>Manhattan NYC 10001, USA</p>
+                            </div>
+                            <div class="single-contact-info">
+                                <h4>Address</h4>
+                                <p>6th Forrest Ray, <br>Manhattan NYC 10001, USA</p>
+                            </div>                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="single-contact-info">
+                                <h4>Address</h4>
+                                <p>6th Forrest Ray, <br>Manhattan NYC 10001, USA</p>
+                            </div>
+                            <div class="single-contact-info">
+                                <h4>Address</h4>
+                                <p>6th Forrest Ray, <br>Manhattan NYC 10001, USA</p>
+                            </div>                                
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="map-wrap">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.2799160891!2d-74.25987584510595!3d40.69767006338158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1606298363793!5m2!1sen!2sbd" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact-form-area pd-t-150">
+        <div class="container">
+            <header class="section-heading text-center">
+                <h3 class="section-title">Drop us a line</h3>
+            </header>
+            <div class="row">
+                <div class="col-lg-12">
+                    <form [formGroup]="contactForm" (ngSubmit)="onClickSubmit()" class="contact-form">
+                        <div class="row">
+                            <div class="col-lg-6 ">
+                                <label for="yourName">Your Name</label>
+                                <input type="text" id="yourName" formControlName="yourName">
+                            </div>
+                            <div class="col-lg-6 form-group">
+                                <label for="yourEmail">Your Email</label>
+                                <input type="text" id="yourEmail" formControlName="yourEmail">
+                            </div>
+                            <div class="col-lg-12 form-group">                                
+                                <label for="yourMessage">Your Message</label>
+                                <textarea name="" id="yourMessage" formControlName="yourMessage"></textarea>
+                            </div>
+                            <div class="col-lg-12 text-center form-group">
+                                <button type="submit" class="boxed-btn">Send</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>

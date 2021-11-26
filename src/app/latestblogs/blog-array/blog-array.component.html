@@ -1,0 +1,29 @@
+<div class="row">
+     
+    <div class="col-lg-5">
+      <article class="single-blog mb-4" *ngFor="let blogs of blogList">
+        <figure class="d-md-flex d-lg-flex d-xl-flex align-items-center">
+          <div class="blog-thumb">
+            <a routerLink="../blogdetail/{{blogs.id}}"
+              ><div class="bg-img blog-thumb-bg">
+                <img src="{{ blogs.image.url }}" alt="" /></div
+            ></a>
+          </div>
+          <figcaption class="blog-content p-3">
+            <h4 class="post-title mb-3">
+              <a routerLink= "../blogdetail/{{blogs.id}}">{{
+                blogs.title
+              }}</a>
+            </h4>
+            <p class="post-text">
+              {{ blogs.description
+              }}<a
+                class="inline-btn mt-3"
+                routerLink="../blogdetail/{{blogs.id}}"
+                >Read More</a
+              >
+            </p>
+          </figcaption>
+        </figure>
+      </article>
+    </div>

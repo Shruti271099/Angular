@@ -69,7 +69,9 @@
         <div class="col-lg-3 col-md-4">
           <div class="categories_menu">
             <div class="categories-title">
-              <h2 class="category-toggle">Shop by category</h2>
+              <h2 class="category-toggle">
+                <a  style="color: aliceblue;text-underline-position: unset;" routerLink="../products">
+                Shop by category</a></h2>
             </div>
             <div class="categories-menu-toggle" style="display: none">
               <ul>
@@ -92,20 +94,14 @@
                 <li><a class="active" href="index.html">Home</a></li>
 
                 <li>
-                  <a class="active" href="index.html"
+                  <a class="active" [routerLink]="['/products']"
                     >Products<i class="fa fa-angle-down"></i
                   ></a>
-                  <ul class="sub-menu">
-                    <li><a href="product.html">Product 1</a></li>
-                    <li><a href="product-2.html">Product 2</a></li>
-                    <li><a href="product-3.html">Product 3</a></li>
-                    <li><a href="product-4.html">Product 4</a></li>
-                    <li><a href="product-5.html">Product 5</a></li>
-                  </ul>
+                  
                 </li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a routerLink="../latestblogs">Blog</a></li>
                 <li><a routerLink="../about" >About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a routerLink="../contact">Contact</a></li>
               </ul>
             </nav>
           </div>

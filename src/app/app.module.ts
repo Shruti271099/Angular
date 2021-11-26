@@ -15,7 +15,17 @@ import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SharedComponent } from './shared/shared.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PassValidatorComponent } from './pass-validator/pass-validator.component';
+import { LatestblogsComponent } from './latestblogs/latestblogs.component';
+
+import { ProductsComponent } from './products/products.component';
+import { ContactComponent } from './contact/contact.component';
+import {  HttpClientModule } from '@angular/common/http';
+import { OneProductDetailComponent } from './products/one-product-detail/one-product-detail.component';
+import { BlogArrayComponent } from './latestblogs/blog-array/blog-array.component';
+import { FooterLinksComponent } from './footer-links/footer-links.component';
+
 
 @NgModule({
   declarations: [
@@ -32,11 +42,25 @@ import { ReactiveFormsModule } from '@angular/forms';
     SignupComponent,
     AboutComponent,
     SharedComponent,
+    PassValidatorComponent,
+    LatestblogsComponent,
+ 
+    ProductsComponent,
+    ContactComponent,
+    OneProductDetailComponent,
+    BlogArrayComponent,
+    FooterLinksComponent,
+
   ],
-  imports: [BrowserModule, 
+  imports: [
+    BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-     FontAwesomeModule],
+    FontAwesomeModule,
+    FormsModule,
+    HttpClientModule
+  ],
+
   providers: [],
   bootstrap: [AppComponent],
 })

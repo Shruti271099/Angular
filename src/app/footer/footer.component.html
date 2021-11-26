@@ -20,31 +20,31 @@
                         <aside class="col-lg-4 col-md-4 pl-lg-5 pl-xl-5 footer-widget">
                             <h6 class="title mb-5">Information</h6>
                             <ul class="list-unstyled">
-                                <li> <a href="#">Home</a></li>
-                                <li> <a href="#">Product</a></li>
-                                <li> <a href="#">Contact</a></li>
-                                <li> <a href="#">Blogs</a></li>
-                                <li> <a href="#">Login</a></li>
+                                <li> <a routerLink="" >Home</a></li>
+                                <li> <a routerLink="products">Product</a></li>
+                                <li> <a routerLink="contact">Contact</a></li>
+                                <li> <a routerLink="latestblogs">Blogs</a></li>
+                                <li> <a routerLink="auth/login">Login</a></li>
                             </ul>
                         </aside>
+            
                         <aside class="col-lg-3 col-md-3 footer-widget">
                             <h6 class="title mb-5">Extras</h6>
-                            <ul class="list-unstyled">
+                            <ul class="list-unstyled" *ngFor="let links of footerLinks">
                                 
-                                <li> <a href="#">Delivery Info</a></li>
-                                <li> <a href="#">Privacy Policy</a></li>
-                                <li> <a href="#">Terms &amp; Condition</a></li>
-                                <li> <a href="#">Order &amp; Return</a></li>
+                                
+                                <li> <a routerLink="../footerLinks/{{links.value}}">{{links.name}}</a></li>
+                               
                             </ul>
                         </aside>
-                        <!-- <aside class="col-lg-5 col-md-5 footer-widget">
+                        <aside class="col-lg-5 col-md-5 footer-widget">
                             
                             <div class="payment-method">
                                 <a href="" class="mr-4"><img src="../../assets/img/payment/paypal.png" alt=""></a>
                                 <a href="" class="mr-4"><img src="../../assets/img/payment/mastercard.png" alt=""></a>
                                 <a href="" class=""><img src="../../assets/img/payment/visa.png" alt=""></a>
                             </div>
-                        </aside> -->
+                        </aside>
                     </div>
                 </div>
             </div> <!-- row.// -->
