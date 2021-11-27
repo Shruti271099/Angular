@@ -17,11 +17,8 @@ productFilter!:any;
     this.blogService.getProduct().subscribe(res => {
       console.log(res);
       this.productFilter = res;
-      console.log(this.productFilter[0].title);
+      console.log(this.productFilter[0]);
     });
   }
-  onClickProduct(){
-    this.router.navigate(['one-product-detail'] ,{relativeTo:this.activeRoute});
-  }
-
+  
 }

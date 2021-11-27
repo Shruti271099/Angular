@@ -19,11 +19,11 @@ export class BlogDetailsComponent implements OnInit {
   ngOnInit() {
     let id = this.route.snapshot.params.id;
     console.log(id);
-    const datas = this.blogService.getOneBlog(id).subscribe((data: any) => {
+   this.blogService.getOneBlog(id).subscribe((data: any) => {
       this.blogList = data;
       console.log(this.blogList.title)
     });
-    console.log(datas);
+   
     
   }
  

@@ -1,1 +1,71 @@
-<p>one-product-detail works!</p>
+<section class="blog-area pd-t-150">
+    <div class="container">
+      <div class="row">
+        <main class="col-lg-6">
+          <div
+            class="single-food"
+            style="width: 268px; margin-left: auto; margin-right: auto"
+          >
+            <figure class="card card-product-grid">
+              <div class="img-wrap mb-3" style="padding: 0px">
+                <span class="topbar"></span
+                ><img
+                  src="{{SingleProductDetail.image.url}}"
+                  alt=""
+                  style="width: 267px; height: 308px"
+                />
+              </div>
+            </figure>
+          </div>
+        </main>
+        <aside class="col-lg-6">
+          <div class="product-detail">
+            <p class="product-name">{{SingleProductDetail.title}}</p>
+            <p class="product-info">Vendor:<span>{{SingleProductDetail.vendor}} </span></p>
+            <p class="product-info">Availability:<span>{{SingleProductDetail.AvailableQuantity}}</span></p>
+            <p class="product-info" >Category: <span>{{productCategory}}</span></p>
+            <p class="product-info">
+              MRP:<span><del class="price-old">{{SingleProductDetail.MRP}}</del></span>
+            </p>
+            <p class="product-info">
+              Sale Price:
+              <span>{{SingleProductDetail.SalePrice}} <span class="product-qty"></span></span>
+            </p>
+            <!-- <p class="product-info">Total Price: <span>₹200</span></p> -->
+            <p class="product-info">
+              Qty<span
+                ><select
+                  class="form-control"
+                  style="display: initial; border-radius: 20px; width: 170px"
+                >
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+
+                  </select
+                ><i
+                  class="fas fa-chevron-down"
+                  style="
+                    position: absolute;
+                    bottom: 122px;
+                    left: 37%;
+                    color: white;
+                  "
+                ></i
+              ></span>
+            </p>
+            <button type="submit" class="add-to-cart">Add to cart</button
+            ><button type="submit" class="buy-now">Buy Now</button
+            ><img
+              src=""
+              alt=""
+              style="height: 50px; margin-left: 15px; padding: 5px"
+            />
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+  

@@ -1,5 +1,5 @@
 import { BlogServiceService } from 'src/app/core/blog-service.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,19 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 contactForm!:FormGroup;
-  constructor(private fb:FormBuilder,private blogSerice:BlogServiceService) { 
-  this.contactForm = this.fb.group({
-   yourName: ['',Validators.required],
-   yourEmail:['',Validators.required],
-   yourMessage:['',Validators.required]
+saveUSerData :any;
+  constructor(private blogSerice:BlogServiceService) { 
+  this.contactForm = new FormGroup({
+   name: new FormControl ('',Validators.required),
+   email: new FormControl('',Validators.required),
+   message: new FormControl('',Validators.required)
   })
   }
 
   ngOnInit(): void {
   }
   onClickSubmit(){
-    console.log('1');
-    this.blogSerice.postContactForm(this.contactForm).subscribe(res => 
-      console.log(res));
+    let ContactForm = JSON.stringify(this.contactForm.value);
+    this.blogSerice.postContactForm(ContactForm).subscribe(res => 
+     
+     { this.saveUSerData = res; 
+     console.log(res);
+    }
+    )
+  }
+  SaveContact(){
+
   }
 }

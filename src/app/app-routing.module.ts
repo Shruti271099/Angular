@@ -25,19 +25,12 @@ const routes: Routes = [
   {path:'footerLinks/:name' , component:FooterLinksComponent},
   { path: 'footer', component: FooterComponent },
   { path: 'navbar', component: NavbarComponent },
-  { path: 'about', component: AboutComponent },
+  { path: 'about-us', component: AboutComponent },
+  { path: 'one-product-detail/:name', component: OneProductDetailComponent },
   {
     path: 'products',
     component: ProductsComponent,
-    children: [
-      { path: 'one-product-detail', component: OneProductDetailComponent },
-  
-      {
-        path: 'trendyfoods',
-        component: TrendyFoodsComponent,
-      },
     
-    ],
   },
 
   { path: 'contact', component: ContactComponent },

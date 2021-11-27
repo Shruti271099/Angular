@@ -15,21 +15,21 @@ import { BlogServiceService } from 'src/app/core/blog-service.service';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
-  form!: any;
+  signUpForm!: any;
   success = '';
   passwordPattern =
     '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$&()-`.+,/"])[A-Za-zd!@#$&()-`.+,/"].{7,}';
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$';
   ValidatorFn: any;
   passwordValue!: any;
-  submitted = false;
+  saveUserData:any;
+
 
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient,
     private blogService: BlogServiceService
   ) {
-    this.form = this.fb.group({
+    this.signUpForm = this.fb.group({
       username:['', [Validators.required]],
       email: ['', [
         Validators.required,
@@ -45,18 +45,16 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  get f() {
-    return this.form.controls;
-  }
-
+  
   onSubmit() {
-    console.log('1');
-    this.submitted = true;
+    
    
-    this.blogService
-      .getRegisterUser(this.form)
-      .subscribe((res) => console.log('alert'));
-
-    // stop here if form is invalid
+    let ContactForm = JSON.stringify(this.signUpForm.value);
+    this.blogService.postContactForm(ContactForm).subscribe(res => 
+     
+     { this.saveUserData = res; 
+     console.log(res);
+    }
+    )
   }
 }

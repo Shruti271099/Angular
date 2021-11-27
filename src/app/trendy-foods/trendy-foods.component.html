@@ -21,14 +21,14 @@
                     
                     <img src="{{item.image.url}}"/>
                     <span class="stc-hover" >
-                      <a style="align-items: center;" routerLink="one-product-detail">
+                      <a style="align-items: center;" routerLink="../one-product-detail/{{item.slug}}">
                       <img  src="../../assets/img/icon/icon-phone.png" alt=""></a>
                       <!-- <a [routerLink]="['one-product']"><i class="fa fa-heart"></i></a>
                       <a [routerLink]="['one-product']"><i class="fa fa-shopping-cart"></i></a> -->
                     </span>
                   </div> 
                   <figcaption class="info-wrap">
-                    <a href="#" class="title mb-3">{{item.title}}</a>
+                    <a href="#" class="title mb-3" routerLink="../one-product-detail/{{item.slug}}">{{item.title}}</a>
                     <div class="price-wrap mt-2">
                       <span class="price">&#8377;{{item.SalePrice}}</span>
                       <del class="price-old"> &#8377; {{item.MRP}}</del>

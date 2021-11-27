@@ -26,7 +26,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="login-form">
           <div class="row single-contact-info">
             <div class="form-group">
               <label class="center-block" for="username">User name</label>
@@ -38,13 +38,13 @@
               />
               <div
                 *ngIf="
-                  form.controls['username'].invalid &&
-                  (form.controls['username'].dirty ||
-                    form.controls['username'].touched)
+                  signUpForm.controls['username'].invalid &&
+                  (signUpForm.controls['username'].dirty ||
+                    signUpForm.controls['username'].touched)
                 "
                 class="alert"
               >
-                <div *ngIf="form.controls['username'].errors.required">
+                <div *ngIf="signUpForm.controls['username'].errors.required">
                   Please enter username
                 </div>
               </div>
@@ -54,9 +54,9 @@
               <input class="form-control" type="text" formControlName="email" />
               <div
                 *ngIf="
-                  form.controls['email'].invalid &&
-                  (form.controls['email'].dirty ||
-                    form.controls['email'].touched)
+                signUpForm.controls['email'].invalid &&
+                  (signUpForm.controls['email'].dirty ||
+                    signUpForm.controls['email'].touched)
                 "
                 class="alert"
               >
@@ -73,14 +73,14 @@
 
               <div
                 *ngIf="
-                  form.controls['password'].invalid &&
-                  (form.controls['password'].dirty ||
-                    form.controls['password'].touched)
+                  signUpForm.controls['password'].invalid &&
+                  (signUpForm.controls['password'].dirty ||
+                    signUpForm.controls['password'].touched)
                 "
                 class="alert"
               >
                 Please enter a strong password
-                <div *ngIf="form.controls['password'].errors.required">
+                <div *ngIf="signUpForm.controls['password'].errors.required">
                   Password is required
                 </div>
               </div>
@@ -93,7 +93,7 @@
                 formControlName="confirmPassword"
               />
              
-              <div *ngIf="form.controls['confirmPassword'].errors.mismatch">hello</div>
+              <div *ngIf="signUpForm.controls['confirmPassword'].errors.mismatch">hello</div>
             </div>
             <div class="col-lg-12 text-center form-group">
               <button  type="submit" class="boxed-btn">

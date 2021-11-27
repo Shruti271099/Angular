@@ -1,3 +1,5 @@
+import { ActivatedRoute } from '@angular/router';
+import { BlogServiceService } from 'src/app/core/blog-service.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopCategoriesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private blogService:BlogServiceService , private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    let names = this.route.queryParams;
+    this.blogService.getProductCategory(names).subscribe(res =>
+      console.log(res))
   }
 
 }
