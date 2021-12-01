@@ -1,3 +1,6 @@
 .breadcumb-area{
     background-image: url(../../../assets/img/breadcumb/breadcumb-contact.jpg);
 }
+.errors{
+    color: red;
+}

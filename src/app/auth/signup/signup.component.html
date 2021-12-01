@@ -80,7 +80,8 @@
                 class="alert"
               >
                 Please enter a strong password
-                <div *ngIf="signUpForm.controls['password'].errors.required">
+                <div class="errors" *ngIf="signUpForm.controls['password'].errors.required && (signUpForm.controls['password'].dirty ||
+                signUpForm.controls['password'].touched)">
                   Password is required
                 </div>
               </div>
@@ -88,15 +89,18 @@
             <div class="form-group">
               <label for="password">Confirm Password</label>
               <input
+              (input)="confirmPassword()"
                 class="form-control"
                 type="password"
+                #confirmPass
                 formControlName="confirmPassword"
               />
              
-              <div *ngIf="signUpForm.controls['confirmPassword'].errors.mismatch">hello</div>
+              <div class="errors" *ngIf="signUpForm.controls['confirmPassword'].invalid && (signUpForm.controls['confirmPassword'].dirty ||
+              signUpForm.controls['confirmPassword'].touched)">Password doesn't match</div>
             </div>
             <div class="col-lg-12 text-center form-group">
-              <button  type="submit" class="boxed-btn">
+              <button  [disabled]="!signUpForm.valid" type="submit" class="boxed-btn">
                 Sign Up
               </button>
             </div>

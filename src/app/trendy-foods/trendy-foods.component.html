@@ -1,19 +1,19 @@
 <section class="trendy-foods-area pd-tb-120">
   <div class="container">
-    <header class="section-heading text-center">
+    <header  class="section-heading text-center">
       <h3 class="section-title">Trendy Foods</h3>
     </header>
     <div class="row">
       <div class="col-lg-12">
         <div class="trendy-foods-filtering">
           <div class="button-group filter-button-group text-center">
-            <button class="active" data-filter="*">All</button>
-            <button data-filter=".featured">Featured</button>
-            <button data-filter=".new">New</button>
-            <button data-filter=".onsale">Onsell</button>
+            <button (click)="onClickAllButton(0,8)" class="active" data-filter="*">All</button>
+            <button (click) ="onClickFeatureButton('true',0,8)" data-filter=".featured">Featured</button>
+            <button (click)="onClickNewButton('DESC',0,8)"data-filter=".new">New</button>
+            <button (click)="onClickAllButton(0,8)" data-filter=".onsale">Onsell</button>
           </div>
           <hr>
-          <div class="row grid" >
+          <div class="row grid" *ngIf="IsFeatured">
             <div class="col-md-3 col-sm-6 featured grid-item">
               <div class="single-food">
                 <figure class="card card-product-grid" *ngFor="let item of productFilter">
@@ -28,7 +28,7 @@
                     </span>
                   </div> 
                   <figcaption class="info-wrap">
-                    <a href="#" class="title mb-3" routerLink="../one-product-detail/{{item.slug}}">{{item.title}}</a>
+                    <a  class="title mb-3" routerLink="../one-product-detail/{{item.slug}}">{{item.title}}</a>
                     <div class="price-wrap mt-2">
                       <span class="price">&#8377;{{item.SalePrice}}</span>
                       <del class="price-old"> &#8377; {{item.MRP}}</del>
@@ -38,6 +38,33 @@
               </div>
             </div>
             </div>
+            <!-- =============================== -->
+            <div class="row grid" >
+              <div class="col-md-3 col-sm-6 featured grid-item">
+                <div class="single-food">
+                  <figure class="card card-product-grid" *ngFor="let item of buttonClick">
+                    <div class="img-wrap mb-3">
+                      
+                      <img src="{{item.image.url}}"/>
+                      <span class="stc-hover" >
+                        <a style="align-items: center;" routerLink="../one-product-detail/{{item.slug}}">
+                        <img  src="../../assets/img/icon/icon-phone.png" alt=""></a>
+                        <!-- <a [routerLink]="['one-product']"><i class="fa fa-heart"></i></a>
+                        <a [routerLink]="['one-product']"><i class="fa fa-shopping-cart"></i></a> -->
+                      </span>
+                    </div> 
+                    <figcaption class="info-wrap">
+                      <a  class="title mb-3" routerLink="../one-product-detail/{{item.slug}}">{{item.title}}</a>
+                      <div class="price-wrap mt-2">
+                        <span class="price">&#8377;{{item.SalePrice}}</span>
+                        <del class="price-old"> &#8377; {{item.MRP}}</del>
+                      </div>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+              </div>
+            <!-- ================================= -->
           </div>
         </div>
       </div>

@@ -1,10 +1,10 @@
 .hero-area{
     background-image: url('../../assets/img/breadcumb/breadcumb-about.jpg');
-    position: relative;
+    
     background-repeat: no-repeat;
 }
-.hero-content{
+/* .hero-content{
     border-radius: 1000px 1000px;
     border-radius: 100px 50px ;
-}
+} */
  

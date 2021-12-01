@@ -1,10 +1,7 @@
 .breadcumb-area{
     background-image: url(../../../assets/img/breadcumb/breadcumb-contact.jpg);
 }
-button[disabled]{
-   
-  
-}
+
 .alert{
     color: red;
 }
@@ -13,4 +10,7 @@ button[disabled]{
     background-color:#18b6d6; 
     border-color: red !important;
 
+ }
+ .errors {
+     color: red;
  }

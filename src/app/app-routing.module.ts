@@ -1,3 +1,5 @@
+import { AppComponent } from './app.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 import { FooterLinksComponent } from './footer-links/footer-links.component';
 import { OneProductDetailComponent } from './products/one-product-detail/one-product-detail.component';
 import { ContactComponent } from './contact/contact.component';
@@ -8,7 +10,6 @@ import { AboutComponent } from './about/about.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { BrandCarouselComponent } from './brand-carousel/brand-carousel.component';
-import { TrendyFoodsComponent } from './trendy-foods/trendy-foods.component';
 import { TopCategoriesComponent } from './top-categories/top-categories.component';
 import { MainComponent } from './main/main.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -18,20 +19,24 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BlogDetailsComponent } from './latestblogs/blog-details/blog-details.component';
 import { BlogArrayComponent } from './latestblogs/blog-array/blog-array.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/main', pathMatch: 'full' },
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: 'header', component: HeaderComponent },
   {path:'footerLinks/:name' , component:FooterLinksComponent},
   { path: 'footer', component: FooterComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'about-us', component: AboutComponent },
   { path: 'one-product-detail/:name', component: OneProductDetailComponent },
+  {path:'forgot-password', component:ForgotPasswordComponent},
+  {path:'reset-password', component:ChangePasswordComponent},
   {
     path: 'products',
     component: ProductsComponent,
     
   },
+  {path:'products/:name',component:ProductsComponent},
 
   { path: 'contact', component: ContactComponent },
 
@@ -39,13 +44,13 @@ const routes: Routes = [
     path: 'navbarcomponent',
     component: NavbarComponent,
   },
-  { path: 'main', component: MainComponent },
+  { path: '', component: MainComponent },
   { path: 'latestblogs', component: LatestblogsComponent ,
   children:[{
     path:'blog-array' , component:BlogArrayComponent
   }]},
   { path: 'blogdetail/:id', component: BlogDetailsComponent },
-  { path: 'topcategories', component: TopCategoriesComponent },
+  { path: 'topcategories/:id', component: TopCategoriesComponent },
   
   { path: 'pass-validation', component: PassValidatorComponent },
   { path: 'brandcarousel', component: BrandCarouselComponent },

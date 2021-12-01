@@ -25,6 +25,8 @@ import {  HttpClientModule } from '@angular/common/http';
 import { OneProductDetailComponent } from './products/one-product-detail/one-product-detail.component';
 import { BlogArrayComponent } from './latestblogs/blog-array/blog-array.component';
 import { FooterLinksComponent } from './footer-links/footer-links.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 @NgModule({
@@ -50,6 +52,8 @@ import { FooterLinksComponent } from './footer-links/footer-links.component';
     OneProductDetailComponent,
     BlogArrayComponent,
     FooterLinksComponent,
+    ForgotPasswordComponent,
+    ChangePasswordComponent,
 
   ],
   imports: [

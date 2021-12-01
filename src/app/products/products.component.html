@@ -1,72 +1,120 @@
 <section class="hero-area">
-    <div class="hero-carousel">
-      <div class="single-hero d-flex align-items-center text-center">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 offset-lg-2 text-center">
-              <div class="hero-content">
-                <h2>Products</h2>
-              </div>
+  <div class="hero-carousel">
+    <div class="single-hero d-flex align-items-center text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2 text-center">
+            <div class="hero-content">
+              <h2>Products</h2>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <div class="container">
+  </div>
+</section>
+<div class="container">
   <div class="row" style="align-items: center">
     <div class="col-lg-4 col-md-4 col-8 text-center">
       <div class="search-box">
-        <input type="text" placeholder="Search for product" />
-        <button
-          type="submit"
-        >
+        <input
+          type="text"
+          placeholder="Search for product"
+          #str
+          (input)="onSearch($event)"
+          value=""
+        />
+        <button type="submit">
           <i class="fa fa-search"></i>
         </button>
       </div>
     </div>
-   
-  
-    <div class="filter">
-      <div class="form-group"><br>
-        <label for="email">Filter by category</label
-        >
-        <select
-          class="form-control"
-          style="display: initial; border-radius: 20px; width: 170px"
-          (change)="onSelectOption($event)"
-          
-        >
+  </div>
 
+  <div class="filter">
+    <div class="form-group">
+      <br />
+      <label for="email">Filter by category</label>
 
-        <!-- <ng-container *ngFor="let item of productFilter"  >
-          <option *ngFor="let items of item.categories" [value]="items.id" > 
-                    {{items.slug}}
-                   </option>
-         </ng-container> -->
-        
-          <option >All</option>
-         
-          <option  value="cakes">Cakes</option>
-          <option value="drinks">Drinks</option>
-          <option value="eggs">Eggs</option>
-          <option value="fruits">Fruits</option>
-          <option value="meat">Meats</option>
-          <option value="vegetables">Vegetables</option>
-          <option value="database">Database</option>
-          <option value="front">Front</option>
-          <option value="other">Other</option>
-          <option value="container">Container</option>
-          
-        
-        </select>
-        <i
-          class="fas fa-chevron-down"
-          style="position: absolute; top: 32px; left: 27%; color: white"
-        ></i>
-      </div>
+      <select
+        class="form-control"
+        style="display: initial; border-radius: 20px; width: 170px"
+        (change)="onSelectOption($event)"
+      >
+        <!-- <ng-container *ngFor="let item of categories"  > -->
+        <option value="all">All</option>
+        <option *ngFor="let category of categories" [value]="category.id">
+          {{ category.name }}
+        </option>
+      </select>
+
+      <!-- ======================================= -->
+      <section class="trendy-foods-area pd-tb-120">
+        <div class="container">
+          <header class="section-heading text-center">
+            
+          </header>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="trendy-foods-filtering">
+               
+                <hr /> 
+                
+                <hr>
+                <div class="row grid">
+                  <div class="col-md-3 col-sm-6 featured grid-item">
+                    <div class="single-food">
+                      <figure
+                        class="card card-product-grid"
+                        *ngFor="let item of storeItem"
+                      >
+                        <div class="img-wrap mb-3">
+                          <img src="{{ item.image.url }}" />
+                          <span class="stc-hover">
+                            <a
+                              style="align-items: center"
+                              routerLink="../one-product-detail/{{ item.slug }}"
+                            >
+                              <img
+                                src="../../assets/img/icon/icon-phone.png"
+                                alt="not found"
+                            /></a>
+                            <!-- <a [routerLink]="['one-product']"><i class="fa fa-heart"></i></a>
+                              <a [routerLink]="['one-product']"><i class="fa fa-shopping-cart"></i></a> -->
+                          </span>
+                        </div>
+                        <figcaption class="info-wrap">
+                          <a
+                           
+                            class="title mb-3"
+                            routerLink="../one-product-detail/{{ item.slug }}"
+                            >{{ item.title }}</a
+                          >
+                          <div class="price-wrap mt-2">
+                            <span class="price"
+                              >&#8377;{{ item.SalePrice }}</span
+                            >
+                            <del class="price-old"> &#8377; {{ item.MRP }}</del>
+                          </div>
+                        </figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <i
+            class="fas fa-chevron-down"
+            style="position: absolute; top: 32px; left: 27%; color: white"
+          ></i>
+        </div>
+        <!-- <div *ngIf="!showAll">
+          <div *ngIf="dropdownSelected">
+            <app-trendy-foods *ngIf="dropdownSelected"></app-trendy-foods>
+          </div>
+        </div> -->
+      </section>
     </div>
   </div>
 </div>
-<app-trendy-foods></app-trendy-foods>
-

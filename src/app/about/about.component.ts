@@ -13,10 +13,7 @@ export class AboutComponent implements OnInit {
   constructor(private blogService:BlogServiceService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-   
-    
-   
-    this.blogService.getApi('about-us').subscribe(res =>
+    this.blogService.aboutUs().subscribe(res =>
       {
       this.storeActive = res;
       console.log(res)

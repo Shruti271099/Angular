@@ -1,12 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { BlogServiceService } from 'src/app/core/blog-service.service';
 
 @Component({
@@ -22,39 +18,39 @@ export class SignupComponent implements OnInit {
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$';
   ValidatorFn: any;
   passwordValue!: any;
-  saveUserData:any;
-
-
+  saveUserData: any;
+  
   constructor(
     private fb: FormBuilder,
-    private blogService: BlogServiceService
+    private blogService: BlogServiceService,
+    private router:Router
   ) {
     this.signUpForm = this.fb.group({
-      username:['', [Validators.required]],
-      email: ['', [
-        Validators.required,
-        Validators.pattern(this.emailPattern),
-      ]],
-      password:['', [
-        Validators.required,
-        Validators.minLength(8),
-      ]],
-      confirmPassword:['', [Validators.required]],
+      username: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
+      password: ['', [Validators.required]],
+      confirmPassword:['',[ RxwebValidators.compare({fieldName:'password' }),Validators.required]],
     });
   }
 
   ngOnInit(): void {}
+  get f(){
+   return this.signUpForm.value;
+  }
 
-  
   onSubmit() {
     
-   
-    let ContactForm = JSON.stringify(this.signUpForm.value);
-    this.blogService.postContactForm(ContactForm).subscribe(res => 
+    var name = this.signUpForm.value;
+    this.blogService.postRegister(name).subscribe(res =>
+      console.log(res)
+      )
+      this.router.navigate(['auth/login']);
      
-     { this.saveUserData = res; 
-     console.log(res);
-    }
-    )
+   
   }
+  confirmPassword(){
+    const  value = this.signUpForm.value;
+    console.log(value)
+  }
+  
 }

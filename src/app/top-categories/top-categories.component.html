@@ -1,56 +1,25 @@
 <section class="top-categories-area pd-tb-100 bg-soft-green">
-    <div class="container">
-        <header class="section-heading text-center">
-            <h3 class="section-title">Top Categories</h3>
-        </header>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="top-categories-carousel owl-carousel">
-                   
-                    <a href="" class="single-top-category text-center">
-                        <span class="top-category-image mb-2">
-                            <img src="../../assets/img/category/cat-fruits.png" alt="">
-                        </span>
-                        <span class="top-category-name">Fruits</span>
-                    </a>
-                    
-                    <a href="" class="single-top-category text-center">
-                        <span class="top-category-image mb-2">
-                            <img src="../../assets/img/category/cat-cakes.png" alt="">
-                        </span>
-                        <span class="top-category-name">Cakes</span>
-                    </a>
-                    
-                    <a href="" class="single-top-category text-center">
-                        <span class="top-category-image mb-2">
-                            <img src="../../assets/img/category/cat-drinks.png" alt="">
-                        </span>
-                        <span class="top-category-name">Drinks</span>
-                    </a>
-                    
-                    <a href="" class="single-top-category text-center">
-                        <span class="top-category-image mb-2">
-                            <img src="../../assets/img/category/cat-eggs.png" alt="">
-                        </span>
-                        <span class="top-category-name">Eggs</span>
-                    </a>
-                    
-                    <a href="" class="single-top-category text-center">
-                        <span class="top-category-image mb-2">
-                            <img src="../../assets/img/category/cat-meats.png" alt="">
-                        </span>
-                        <span class="top-category-name">Meats</span>
-                    </a>
-                    
-                    <a href="" class="single-top-category text-center">
-                        <span class="top-category-image mb-2">
-                            <img src="../../assets/img/category/cat-vegetables.png" alt="">
-                        </span>
-                        <span class="top-category-name">Vegetables</span>
-                    </a>
-                    
-                </div>
-            </div>
+  <div class="container">
+    <header class="section-heading text-center">
+      <h3 class="section-title">Top Categories</h3>
+    </header>
+    <div class="row" *ngFor="let item of storeCategory">
+      <div class="col-lg-12">
+        <div class="top-categories-carousel owl-carousel">
+          <a class="single-top-category text-center" >
+            <span class="top-category-image mb-2">
+              <img
+                (click)="onClickItem(item)"
+                src="{{ item.image.url }}"
+                alt=""
+              />
+            </span>
+            <span (click)="onClickItem(item.id)" class="top-category-name">{{
+              item.name
+            }}</span>
+          </a>
         </div>
+      </div>
     </div>
+  </div>
 </section>
